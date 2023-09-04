@@ -1,0 +1,108 @@
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- link css bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+
+    <!-- link google fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+    <title>index</title>
+
+
+    <!-- style the file with internal css and bootstrap-->
+    <style>
+        body {
+            background-image: url('{% static 'polls/images/AOT_BACKGROUND.jpeg'%}');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: thin;
+            color: #EFECE6;
+        }
+
+        img {
+            height: 250px;
+            width: 150px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+<!--------
+  HEADING
+---------->
+
+<div class="container" id="header">
+
+    <!-- Heading  -->
+    <h1><br><br>The Neo-Jaegerist Federation</h1>
+
+</div> <!-- close heading -->
+
+
+<br><br>    <!-- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
+
+
+<!--------
+  MISSION
+---------->
+<div class="container" id="mission">
+
+    <!--LOGO & TEXT ROW -->
+    <div class="row">
+
+        <!-- left col-->
+        <div class="col-md-2">
+            <img src="{% static 'polls/images/wall titan.png'%}" alt="Wall Titan Logo">
+        </div>
+
+        <!-- right col-->
+        <div class="col-md-10">
+
+            <!-- Definition -->
+            <h3>Titans (巨人 Kyojin, lit. "Giant(s)"</h3><br>
+
+            <!-- mission -->
+            <p>We remember the people of Wall Maria. We remember The Great Nation of Eldia. <br>
+                We remember our saviour, Eren Jaeger and the soldiers who gave their lives.<br>
+                The Rumbling will come once more and Titans will conquer the earth. <br>
+                The Subjects of Ymir will rise again. <br><br> Join us or become our enemy.<br><br>
+            </p>
+        </div> <!-- close right col -->
+
+    </div> <!-- close logo-text row -->
+
+    <!-- BUTTONS -->
+    <div class="row">
+        <div class="col-md-12">
+
+            <!-- register button redirects to register page -->
+            <a class="btn btn-dark" href="/register/">Sign Up</a>
+
+            <!-- login button redirects to login page -->
+            <a  class="btn btn-dark" href="/login/">Login</a>
+
+        </div>
+    </div> <!-- close buttons row -->
+
+</div>      <!-- close container -->
+
+
+<br><br>    <!-- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
+
+</body>
+</html>
+
+<!-- END -->

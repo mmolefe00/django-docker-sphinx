@@ -1,0 +1,78 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- link css bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- link google fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+    <title>login</title>
+
+    <!-- style file with internal css and bootstrap -->
+    <style>
+        body {
+            background-image: url('{% static 'polls/images/AOT_BACKGROUND.jpeg'%}');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: thin;
+            color: #EFECE6;
+        }
+    </style>
+
+</head>
+<body>
+
+<!--------
+  HEADING
+---------->
+
+<div class="container">
+    <h1><br><br>Login</h1>
+</div>
+
+
+<br>    <!-- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
+
+
+<!-----------
+  LOGIN FORM
+------------->
+
+<div class="container">
+<form action="{% url 'polls:login' %}" method="post">
+    {% csrf_token%}  <!-- CSRF token prevents a malicious attacks -->
+
+
+    <!-- make username label and mandatory field -->
+    <br><label>Username: </label><br>
+    <input type="text" name="username" required>
+
+
+    <br><br>
+
+    <!-- make password label and mandatory field -->
+    <!-- type allows for encryption and 'dot' appearance when user enters password-->
+    <label>Password: </label><br>
+    <input type="password" name="password" required>
+
+    <br><br>
+
+    <!-- submit button to log in user and redirect to home page -->
+    <button name="submit" class="btn btn-dark">Login</button>
+    <input type="hidden" name="next"    value="{% url 'polls:home' %}"/>
+
+</form>  <!-- close form -->
+</div>
+
+</body>
+</html>
+<!-- END -->

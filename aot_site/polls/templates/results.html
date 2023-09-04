@@ -1,0 +1,86 @@
+{% load static %}
+
+<!-- link css bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+<!-- link google fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+<title>Results - {{question}}</title>
+
+<!-- style file with internal css and bootstrap -->
+<style>
+    body {
+        background-image: url('{% static 'polls/images/beach.jpg'%}');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: bottom;
+
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+        font-weight: thin;
+        color: #EFECE6;
+    }
+</style>
+
+
+
+<!--------
+  HEADING
+---------->
+
+<div class="container" id="heading">
+
+    <!-- dynamic heading with question text -->
+    <h1 style="font-family: 'Montserrat', sans-serif;"><br><br> Results </h1>
+    <h2 style="opacity:75%;"> {{question.question_text}} </h2>
+
+</div> <!-- close heading -->
+
+
+<br>   <!-- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
+
+
+<!--------
+  RESULTS
+---------->
+
+<div class="container" id="results">
+
+    <ul>  <!-- iterate through questions and choice texts -->
+        {% for choice in question.choice_set.all %}
+
+            <li>
+              <!-- show the choice texts and their respective vote tally -->
+              <b>{{choice.votes}} vote{{choice.votes|pluralize}}</b> for "{{choice.choice_text}}"
+
+            </li>
+
+        {% endfor %}
+    </ul>
+
+</div>  <!-- close results -->
+
+
+<br><br>    <!-- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
+
+
+<!-----------------
+  REDIRECT BUTTONS
+------------------->
+
+<div class="container" id="redirect" style="font-size: 16px;">
+
+    <!-- show option to vote again -->
+    <a class="btn btn-dark" href="{% url 'polls:detail' question.id %}"> Vote again? </a>
+
+    <!-- show option to return to home page -->
+    <a class="btn btn-dark" href="{% url 'polls:home' %}"> Return to Home </a>
+
+</div> <!-- close redirect -->
+
+<br><br>    <!-- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
+
+<!-- END -->

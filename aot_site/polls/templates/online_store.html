@@ -1,0 +1,316 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <!-- link css bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- link google fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+
+    <title>store</title>
+
+    <!-- style file with internal css and bootstrap -->
+    <style>
+        body {
+            background-image: url('{% static 'polls/images/AOT_BACKGROUND.jpeg'%}');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: thin;
+            color: #EFECE6;
+        }
+
+        img {
+            object-fit: cover;
+            width: 150px;
+            height: 150px;
+            }
+
+            .responsive:hover {
+              transform: scale(2);
+        }
+
+        #logo {
+            width: 75px;
+            height: 150px;
+
+        header {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
+            font-weight: normal;
+            text-align: centre;
+            color: #EFECE6;
+            opacity: 75%;
+        }
+    </style>
+
+
+</head>
+
+<body>
+<!-------
+  HEADER
+--------->
+
+<div class="container" id="header">
+
+    <!-- Heading  -->
+    <h1><br><br>Serum Store</h1>
+
+    <!-- Mission and call to action -->
+    <h4><br>Join the Army!</h4>
+    <p><br>
+        In the great words of our wise Commander Erwin Smith,
+        <br><br><em style="opacity:80%"> "The brave fallen! The anguished fallen! The ones who will remember them
+        are us, the living! <br> We die trusting the living who follow to find meaning in our lives." <br><br></em>
+        Our cause is that meaning. We will be at the front-lines fighting for the great nation of Eldia. <br>
+        As our forefathers in 854, The Rumbling will come again for the survival and freedom of our people. <br><br>
+        Purchase your Titan Serum now - while stocks last.
+    </p>
+
+</div> <!-- close header -->
+
+
+<br><br>    <!-- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
+
+
+<!-----------
+  SALE ITEMS
+------------->
+
+<div class="container" id="items">
+
+    <!-- Row 1 Items -->
+    <div class="row" id="row 1">
+
+        <!-- Column 1 Row 1: Pure Titan -->
+        <div class="col-md-2" id="col 1 row 1">
+
+            <!-- heading and image -->
+            <h4>Pure</h4>
+            <img src="{% static 'polls/images/Pure Titan.jpg'%}" alt="Pure Titan" class="responsive">
+
+            <!--order price and button -->
+            <br><br><p>R 12 000</p>
+            <button type="button" class="btn btn-dark">ORDER</button><br><br>
+
+        </div> <!-- Close Pure Titan-->
+
+
+        <!-- Column 2 Row 1: Abnormal Titan -->
+        <div class="col-md-2" id="col 2 row 1">
+
+            <!-- heading and image -->
+            <h4>Abnormal</h4>
+            <img src="{% static 'polls/images/Abnormal Titan.png'%}" alt="Abnormal Titan" class="responsive">
+
+            <!--order price and button -->
+            <br><br><p>R 18 000</p>
+            <button type="button" class="btn btn-dark">ORDER</button><br><br>
+
+        </div> <!-- Close Abnormal Titan -->
+
+
+        <!-- Column 3 Row 1: Cart Titan -->
+        <div class="col-md-2" id="col 3 row 1">
+
+            <!-- heading and image -->
+            <h4>Cart</h4>
+            <img src="{% static 'polls/images/Cart Titan.png'%}" alt="Cart Titan" class="responsive">
+
+            <!--order price and button -->
+            <br><br><p>R 25 000</p>
+            <button type="button" class="btn btn-dark">ORDER</button><br><br>
+
+        </div> <!-- Close Cart Titan -->
+
+
+        <!-- Column 4 Row 1: Jaw Titan -->
+        <div class="col-md-2" id="col 4 row 1">
+
+            <!-- heading and image -->
+            <h4>Jaw</h4>
+            <img src="{% static 'polls/images/Jaw Titan.png'%}" alt="Jaw Titan" class="responsive">
+
+            <!--order price and button -->
+            <br><br><p>R 35 000</p><button type="button" class="btn btn-dark">ORDER</button><br><br>
+
+        </div> <!-- Close Jaw Titan -->
+
+
+        <!-- Column 5 Row 1: Female Titan -->
+        <div class="col-md-2" id="col 5 row 1">
+
+            <!-- heading and image -->
+            <h4>Female</h4>
+            <img src="{% static 'polls/images/Female Titan.jpg'%}" alt="Female Titan" class="responsive">
+
+            <!--order price and button -->
+            <br><br><p>R 50 000</p>
+            <button type="button" class="btn btn-dark">ORDER</button><br><br>
+
+        </div> <!-- Close Female Titan -->
+
+    </div> <!-- Close Row 1 Items -->
+
+
+    <!-- Row 2 Items -->
+    <div class="row" id="row 2">
+
+        <!-- Column 1 Row 2: Armoured Titan -->
+        <div class="col-md-2" id="col 1 row 2">
+
+            <!-- heading and image -->
+            <h4>Armoured</h4>
+            <img src="{% static 'polls/images/Armoured Titan.jpg'%}" alt="Armoured Titan" class="responsive">
+
+            <!--order price and button -->
+            <br><br><p>R 60 000</p><button type="button" class="btn btn-dark">ORDER</button><br><br>
+
+        </div> <!-- Close Armoured Titan -->
+
+
+        <!-- Column 2 Row 2: Beast Titan -->
+        <div class="col-md-2" id="col 2 row 2">
+
+            <!-- heading and image -->
+            <h4>Beast</h4>
+            <img src="{% static 'polls/images/Beast Titan.jpg'%}" alt="Beast Titan" class="responsive">
+
+            <!--order price and button -->
+            <br><br><p>R 75 000</p>
+            <button type="button" class="btn btn-dark">ORDER</button><br><br>
+
+        </div> <!-- Close Beast Titan -->
+
+
+        <!-- Column 3 Row 2: War Hammer Titan -->
+        <div class="col-md-2" id="col 3 row 2">
+
+            <h4>War Hammer</h4>
+            <img src="{% static 'polls/images/Pure Titan.jpg'%}" alt="War Hammer Titan" class="responsive">
+
+            <!--order price and button -->
+            <br><br><p>R 100 000</p>
+            <button type="button" class="btn btn-dark">ORDER</button><br><br>
+
+        </div> <!-- Close War Hammer Titan -->
+
+
+        <!-- Column 4 Row 2: Attack Titan -->
+        <div class="col-md-2" id="col 4 row 2">
+
+            <!-- heading and image -->
+            <h4>Attack</h4>
+            <img src="{% static 'polls/images/Attack Titan.jpg'%}" alt="Attack Titan" class="responsive">
+
+            <!--order price and button -->
+            <br><br><p>R 150 000</p>
+            <button type="button" class="btn btn-dark">ORDER</button><br><br>
+
+        </div> <!-- Close Attack Titan -->
+
+
+        <!-- Column 5 Row 2: Founding Titan -->
+        <div class="col-md-2" id="col 5 row 2">
+
+            <!-- heading and image -->
+            <h4>Founding</h4>
+            <img src="{% static 'polls/images/Founding Titan.jpg'%}" alt="Founding Titan" class="responsive">
+
+             <!--order price and button -->
+            <br><br><p>R 250 000</p>
+            <button type="button" class="btn btn-dark">ORDER</button><br><br>
+
+        </div> <!-- Close Founding Titan -->
+
+    </div> <!-- Close Row 2 Items -->
+
+
+</div> <!-- Close Sale Items Container -->
+
+
+<br><br>    <!-- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
+
+
+<!-------
+  FOOTER
+--------->
+
+<hr style="color: negative; opacity:50%"> <!-- ruler for heading -->
+
+<div class="container" id="contact footer">
+
+    <!-- Heading -->
+    <div class="row" id="cf heading">
+        <h4>Pre-Order The Jaeger Manifesto by Dr Grisha Jaeger</h4>
+        <p>Complete this form and a member of our military will contact you soon.</p>
+        <br><br>
+    </div> <!-- close cf heading -->
+
+
+    <form id="contact form">    <!-- non-functional form -->
+        <div class="row">       <!-- main row -->
+
+            <!-- company logo -->
+            <div id="company-logo" class="col-md-1">
+                <img id="logo" src="{% static 'polls/images/wall titan.png'%}" alt="Wall Titan Logo"><br><br>
+            </div>
+
+            <!-- fields sub-container to span 11/12 columns -->
+            <div  id="fields" class="col-md-11">
+                <div class="container">
+                    <div class="row"> <!-- sub-row in column-->
+
+                        <!-- Name label and input field -->
+                        <div id="name" class="col-md-3">
+                            <label>Name:</label>
+                            <br><br><input type="text" id="name-fld" name="name"><br><br>
+                        </div>
+
+                        <!-- Email label and input field -->
+                        <div id="surname" class="col-md-3">
+                            <label>Surname:</label>
+                            <br><br><input type="text" id="surname-fld" name="surname" ><br><br>
+                        </div>
+
+                        <!-- Email label and input field -->
+                        <div id="email" class="col-md-3">
+                            <label>Email:</label>
+                            <br><br><input type="text" id="email-fld" name="email" ><br><br>
+                        </div>
+
+                        <!-- Cellphone label and input field -->
+                        <div id="cellphone" class="col-md-3">
+                            <label>Cellphone:</label>
+                            <br><br><input type="text" id="cellphone-fld" name="cellphone" placeholder="+27 "><br><br>
+                        </div>
+
+                        <!-- form submission button on new line under name field-->
+                        <div><button type="button" class="btn btn-dark">Submit Form</button></div>
+
+                    </div>  <!-- close sub-row -->
+                </div>      <!-- close sub-container -->
+            </div>          <!-- close column -->
+
+        </div>  <!-- close main row -->
+    </form>     <!-- close form -->
+
+</div> <!-- close footer -->
+
+
+<br><br>    <!-- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- -->
+
+
+</body>
+</html>
+
+<!-- END -->
+
