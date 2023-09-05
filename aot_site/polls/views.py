@@ -19,12 +19,16 @@ from .models import Question, Choice
 
 # === index / landing page ===
 def index(request):
+    """This function is the index/ landing page of the site which is rendered from the index.html file."""
+
     return render(request, "index.html")
 
 
 # === register as user ===
 def register(request):
-
+    """This function facilitates the registration of a new user, authenticates them
+    and then redirects them to the home page.
+    """
     if request.method != 'POST':
         # return blank form if user enters incorrectly
         form = UserCreationForm()
@@ -53,6 +57,9 @@ def register(request):
 
 # === login as user ===
 def user_login(request):
+    """This function facilitates the login of an existing user, authenticates them
+    and then redirects them to the home page."""
+
     if request.method != 'POST':
         form = AuthenticationForm()
 
@@ -72,6 +79,8 @@ def user_login(request):
 
 # === home page ===
 def home(request):
+    """This function is the home page displayed after login/registration which is rendered from the home.html file."""
+
     return render(request, "home.html")
 
 
@@ -81,8 +90,10 @@ def home(request):
 
 # === list page ===
 def polls(request):
-    # home view (landing page or list of poll questions) in order of date published
-    # using poll.html in templates folder
+    """This function displays a list of poll questions to the user in order of date published.
+    It is rendered from the poll.html file in the templates folder.
+    """
+
     latest_question_list = Question.objects.order_by('date_published')
     context = {'latest_question_list': latest_question_list}
     return render(request, "poll.html", context)
@@ -90,6 +101,10 @@ def polls(request):
 
 # === poll detail view ===
 def detail(request, question_id):
+    """This function displays the detail view of a particular question to the user with choice options.
+    Users can then vote for a particular choice. It is rendered from the detail.html file in the templates folder.
+    """
+
     # displays the detail view of the question being asked using detail.html file in templates folder
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'detail.html', {'question': question})
@@ -97,6 +112,11 @@ def detail(request, question_id):
 
 # === poll vote view ===
 def vote(request, question_id):
+    """This function fetches the question and corresponding choice options and facilitates the voting
+    process. It is rendered from the detail.html file and redirects users to the results page
+    (facilitated by the results function)
+    """
+
     # displays page for user to vote on question with an array of choice options
     question = get_object_or_404(Question, pk=question_id)
 
@@ -122,6 +142,9 @@ def vote(request, question_id):
 
 # === poll results view ===
 def result(request, question_id):
+    """This function displays the poll results of a particular question to the user.
+    It is rendered from the poll.html file in the templates folder.
+    """
     # displays the results of our question using results.html file in templates folder
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'results.html', {'question': question})
@@ -132,6 +155,8 @@ def result(request, question_id):
 # ------------------------------------
 
 def store(request):
+    """This function displays the online store to the user. It is rendered from the online_store.html file
+    in the templates folder. The store is not functional yet."""
     return render(request, "online_store.html")
 
 # === END === #
