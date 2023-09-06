@@ -89,6 +89,16 @@
 <div class="viewcode-block" id="index">
 <a class="viewcode-back" href="../../polls.html#polls.views.index">[docs]</a>
 <span class="k">def</span> <span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This function displays the landing page of the site.</span>
+<span class="sd">    It renders the index.html template and returns it as a response.</span>
+
+<span class="sd">    :param request: A Django HttpRequest object representing the user&#39;s request.</span>
+<span class="sd">    :type request: HttpRequest</span>
+
+<span class="sd">    :return: A Django HttpResponse object containing the rendered &quot;index.html&quot; template.</span>
+<span class="sd">    :rtype: HttpResponse</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;index.html&quot;</span><span class="p">)</span></div>
 
 
@@ -97,6 +107,24 @@
 <div class="viewcode-block" id="register">
 <a class="viewcode-back" href="../../polls.html#polls.views.register">[docs]</a>
 <span class="k">def</span> <span class="nf">register</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This function facilitates the registration of a new user based on a POST request; then authenticates them</span>
+<span class="sd">    and redirects them to the home page. If the request is not successful, the user will be prompted to start again</span>
+<span class="sd">    with a clean registration form.</span>
+
+<span class="sd">    :param HttpRequest request: The HTTP request object.</span>
+
+<span class="sd">    :return: A response containing either a registration form or a redirect to the home page.</span>
+<span class="sd">    :rtype: HttpResponse</span>
+
+<span class="sd">    :raises: None</span>
+
+<span class="sd">    :example:</span>
+<span class="sd">        To register a new user, make a POST request to this view with the necessary form data.</span>
+
+<span class="sd">    :note:</span>
+<span class="sd">        This view assumes that you have a Django `UserCreationForm` for user registration.</span>
+<span class="sd">        It also assumes that you have configured URL routing with a &#39;polls:home&#39; reverse URL.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">!=</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
         <span class="c1"># return blank form if user enters incorrectly</span>
@@ -129,6 +157,15 @@
 <div class="viewcode-block" id="user_login">
 <a class="viewcode-back" href="../../polls.html#polls.views.user_login">[docs]</a>
 <span class="k">def</span> <span class="nf">user_login</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Facilitates the login of an existing user, authenticates and then redirects them to the home page.</span>
+
+<span class="sd">    :param request: The HTTP request object.</span>
+<span class="sd">    :type request: HttpRequest</span>
+
+<span class="sd">    :return: A rendered HTML page for user login or a redirection to the home page upon successful login.</span>
+<span class="sd">    :rtype: HttpResponse</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">!=</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
         <span class="n">form</span> <span class="o">=</span> <span class="n">AuthenticationForm</span><span class="p">()</span>
 
@@ -151,6 +188,16 @@
 <div class="viewcode-block" id="home">
 <a class="viewcode-back" href="../../polls.html#polls.views.home">[docs]</a>
 <span class="k">def</span> <span class="nf">home</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This function is the home page displayed after login/registration</span>
+<span class="sd">    It renders the home.html template and returns it as a response.</span>
+
+<span class="sd">    :param request: A Django HttpRequest object representing the user&#39;s request.</span>
+<span class="sd">    :type request: HttpRequest</span>
+
+<span class="sd">    :return: A Django HttpResponse object containing the rendered &quot;home.html&quot; template.</span>
+<span class="sd">    :rtype: HttpResponse</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;home.html&quot;</span><span class="p">)</span></div>
 
 
@@ -163,8 +210,16 @@
 <div class="viewcode-block" id="polls">
 <a class="viewcode-back" href="../../polls.html#polls.views.polls">[docs]</a>
 <span class="k">def</span> <span class="nf">polls</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
-    <span class="c1"># home view (landing page or list of poll questions) in order of date published</span>
-    <span class="c1"># using poll.html in templates folder</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Displays a list of poll questions retrieved from the database to the user, in order of date published,</span>
+<span class="sd">    and renders the &#39;poll.html&#39; template</span>
+
+<span class="sd">    :param request: The HTTP request object.</span>
+<span class="sd">    :type request: HttpRequest</span>
+
+<span class="sd">    :return: The rendered HTML response containing the list of poll questions.</span>
+<span class="sd">    :rtype: HttpResponse</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="n">latest_question_list</span> <span class="o">=</span> <span class="n">Question</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">order_by</span><span class="p">(</span><span class="s1">&#39;date_published&#39;</span><span class="p">)</span>
     <span class="n">context</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;latest_question_list&#39;</span><span class="p">:</span> <span class="n">latest_question_list</span><span class="p">}</span>
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;poll.html&quot;</span><span class="p">,</span> <span class="n">context</span><span class="p">)</span></div>
@@ -175,6 +230,19 @@
 <div class="viewcode-block" id="detail">
 <a class="viewcode-back" href="../../polls.html#polls.views.detail">[docs]</a>
 <span class="k">def</span> <span class="nf">detail</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">question_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Displays the detail view of a specific question to the user, along with its choice options.</span>
+<span class="sd">    Users can then vote for a particular choice.</span>
+
+<span class="sd">    :param request: The HTTP request object.</span>
+<span class="sd">    :type request: HttpRequest</span>
+
+<span class="sd">    :param question_id: The unique identifier of the question.</span>
+<span class="sd">    :type question_id: int</span>
+
+<span class="sd">    :return: The rendered detail page for the question.</span>
+<span class="sd">    :rtype: HttpResponse</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="c1"># displays the detail view of the question being asked using detail.html file in templates folder</span>
     <span class="n">question</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Question</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">question_id</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;detail.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;question&#39;</span><span class="p">:</span> <span class="n">question</span><span class="p">})</span></div>
@@ -185,6 +253,18 @@
 <div class="viewcode-block" id="vote">
 <a class="viewcode-back" href="../../polls.html#polls.views.vote">[docs]</a>
 <span class="k">def</span> <span class="nf">vote</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">question_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function facilitates the voting process for a given question and redirects users to the results page.</span>
+
+<span class="sd">    :param request: The HTTP request object.</span>
+<span class="sd">    :type request: django.http.HttpRequest</span>
+<span class="sd">    :param question_id: The ID of the question to vote on.</span>
+<span class="sd">    :type question_id: int</span>
+
+<span class="sd">    :returns: HttpResponseRedirect to the results page.</span>
+<span class="sd">    :rtype: django.http.HttpResponseRedirect</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="c1"># displays page for user to vote on question with an array of choice options</span>
     <span class="n">question</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Question</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">question_id</span><span class="p">)</span>
 
@@ -213,6 +293,20 @@
 <div class="viewcode-block" id="result">
 <a class="viewcode-back" href="../../polls.html#polls.views.result">[docs]</a>
 <span class="k">def</span> <span class="nf">result</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">question_id</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Displays the poll results of a particular question to the user.</span>
+<span class="sd">    It takes a `request` object and a `question_id` as parameters</span>
+<span class="sd">    and renders a template to display the results of the specified question.</span>
+
+<span class="sd">    :param request: The HTTP request object.</span>
+<span class="sd">    :type request: HttpRequest</span>
+
+<span class="sd">    :param question_id: The ID of the question to display results for.</span>
+<span class="sd">    :type question_id: int</span>
+
+<span class="sd">    :return: A rendered HTML page displaying the poll results.</span>
+<span class="sd">    :rtype: HttpResponse</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="c1"># displays the results of our question using results.html file in templates folder</span>
     <span class="n">question</span> <span class="o">=</span> <span class="n">get_object_or_404</span><span class="p">(</span><span class="n">Question</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="n">question_id</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;results.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;question&#39;</span><span class="p">:</span> <span class="n">question</span><span class="p">})</span></div>
@@ -226,6 +320,16 @@
 <div class="viewcode-block" id="store">
 <a class="viewcode-back" href="../../polls.html#polls.views.store">[docs]</a>
 <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This function displays the online store to the user. The store is not functional yet.</span>
+<span class="sd">    It renders the online_store.html template and returns it as a response.</span>
+
+<span class="sd">    :param request: A Django HttpRequest object representing the user&#39;s request.</span>
+<span class="sd">    :type request: HttpRequest</span>
+
+<span class="sd">    :return: A Django HttpResponse object containing the rendered &quot;online_store.html&quot; template.</span>
+<span class="sd">    :rtype: HttpResponse</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
     <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;online_store.html&quot;</span><span class="p">)</span></div>
 
 

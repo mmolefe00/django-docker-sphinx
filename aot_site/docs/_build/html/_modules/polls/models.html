@@ -77,6 +77,15 @@
 <div class="viewcode-block" id="Question">
 <a class="viewcode-back" href="../../polls.html#polls.models.Question">[docs]</a>
 <span class="k">class</span> <span class="nc">Question</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This class models a specific poll question field with an accompanying date</span>
+<span class="sd">    and returns the question text. Choices for each question are subsequently created in</span>
+<span class="sd">    the :class:`Choice` model.</span>
+
+<span class="sd">    :param question_text: Field with displayed text for each question</span>
+<span class="sd">    :type question_text: models.CharField(max_length=200)</span>
+<span class="sd">    :param date_published: Field for the date the question is published</span>
+<span class="sd">    :type date_published: models.DateTimeField(&#39;date_published&#39;)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># displays the question as well as the published date</span>
     <span class="n">question_text</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>  <span class="c1"># our primary key</span>
@@ -84,7 +93,7 @@
 
     <span class="c1"># to string to return question</span>
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a string representation of the question.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">question_text</span></div>
 
 
@@ -93,23 +102,24 @@
 <div class="viewcode-block" id="Choice">
 <a class="viewcode-back" href="../../polls.html#polls.models.Choice">[docs]</a>
 <span class="k">class</span> <span class="nc">Choice</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;This class model creates choice options under a specific question and allows users to vote</span>
+<span class="sd">    on said choice options. The specific question stems from the :class:`~Question` model.</span>
 
-    <span class="c1"># foreign key from Question class</span>
-    <span class="c1"># on_delete=models.CASCADE means that when we delete the poll question, all the choice options delete with it.</span>
+<span class="sd">     :param question: The question the choices belong to. Should be a :class:`~Question` instance.</span>
+<span class="sd">     :type question: Question</span>
+<span class="sd">     :param choice_text: Field with displayed text for a single choice option.</span>
+<span class="sd">     :type choice_text: str</span>
+<span class="sd">     :param votes: Counts the number of votes for a single choice option.</span>
+<span class="sd">     :type votes: int</span>
+<span class="sd">     &quot;&quot;&quot;</span>
+
     <span class="n">question</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">Question</span><span class="p">,</span> <span class="n">on_delete</span><span class="o">=</span><span class="n">models</span><span class="o">.</span><span class="n">CASCADE</span><span class="p">)</span>
-
-
-    <span class="c1"># field for each choice under the question</span>
     <span class="n">choice_text</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-
-
-    <span class="c1"># counts all our votes for each choice (under the main question)</span>
-    <span class="c1"># if we delete the choice with on_delete, the votes will be auto-deleted.</span>
     <span class="n">votes</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">IntegerField</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
-    <span class="c1"># to string to return choice text</span>
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
+    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return a string representation of the choice option.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">choice_text</span></div>
 
 

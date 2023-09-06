@@ -175,8 +175,32 @@
 <span id="polls-models-module"></span><h2>polls.models module<a class="headerlink" href="#module-polls.models" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="polls.models.Choice">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">polls.models.</span></span><span class="sig-name descname"><span class="pre">Choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">question</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">choice_text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">votes</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polls/models.html#Choice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#polls.models.Choice" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">polls.models.</span></span><span class="sig-name descname"><span class="pre">Choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polls/models.html#Choice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#polls.models.Choice" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>This class model creates choice options under a specific question and allows users to vote
+on said choice options. The specific question stems from the <a class="reference internal" href="#polls.models.Question" title="polls.models.Question"><code class="xref py py-class docutils literal notranslate"><span class="pre">Question</span></code></a> model.</p>
+<blockquote>
+<div><dl class="field-list simple">
+<dt class="field-odd">param question<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The question the choices belong to. Should be a <a class="reference internal" href="#polls.models.Question" title="polls.models.Question"><code class="xref py py-class docutils literal notranslate"><span class="pre">Question</span></code></a> instance.</p>
+</dd>
+<dt class="field-even">type question<span class="colon">:</span></dt>
+<dd class="field-even"><p>Question</p>
+</dd>
+<dt class="field-odd">param choice_text<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Field with displayed text for a single choice option.</p>
+</dd>
+<dt class="field-even">type choice_text<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">param votes<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Counts the number of votes for a single choice option.</p>
+</dd>
+<dt class="field-even">type votes<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</div></blockquote>
 <dl class="py exception">
 <dt class="sig sig-object py" id="polls.models.Choice.DoesNotExist">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#polls.models.Choice.DoesNotExist" title="Link to this definition"></a></dt>
@@ -237,8 +261,19 @@ object the first time, the query is executed.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="polls.models.Question">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">polls.models.</span></span><span class="sig-name descname"><span class="pre">Question</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">question_text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">date_published</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polls/models.html#Question"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#polls.models.Question" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">polls.models.</span></span><span class="sig-name descname"><span class="pre">Question</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polls/models.html#Question"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#polls.models.Question" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></p>
+<p>This class models a specific poll question field with an accompanying date
+and returns the question text. Choices for each question are subsequently created in
+the <a class="reference internal" href="#polls.models.Choice" title="polls.models.Choice"><code class="xref py py-class docutils literal notranslate"><span class="pre">Choice</span></code></a> model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>question_text</strong> (<em>models.CharField</em><em>(</em><em>max_length=200</em><em>)</em>) – Field with displayed text for each question</p></li>
+<li><p><strong>date_published</strong> (<em>models.DateTimeField</em><em>(</em><em>'date_published'</em><em>)</em>) – Field for the date the question is published</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py exception">
 <dt class="sig sig-object py" id="polls.models.Question.DoesNotExist">
 <em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#polls.models.Question.DoesNotExist" title="Link to this definition"></a></dt>
@@ -316,47 +351,183 @@ object the first time, the query is executed.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="polls.views.detail">
 <span class="sig-prename descclassname"><span class="pre">polls.views.</span></span><span class="sig-name descname"><span class="pre">detail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">question_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polls/views.html#detail"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#polls.views.detail" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Displays the detail view of a specific question to the user, along with its choice options.
+Users can then vote for a particular choice.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest</em>) – The HTTP request object.</p></li>
+<li><p><strong>question_id</strong> (<em>int</em>) – The unique identifier of the question.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The rendered detail page for the question.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="polls.views.home">
 <span class="sig-prename descclassname"><span class="pre">polls.views.</span></span><span class="sig-name descname"><span class="pre">home</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polls/views.html#home"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#polls.views.home" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>This function is the home page displayed after login/registration
+It renders the home.html template and returns it as a response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – A Django HttpRequest object representing the user’s request.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A Django HttpResponse object containing the rendered “home.html” template.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="polls.views.index">
 <span class="sig-prename descclassname"><span class="pre">polls.views.</span></span><span class="sig-name descname"><span class="pre">index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polls/views.html#index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#polls.views.index" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>This function displays the landing page of the site.
+It renders the index.html template and returns it as a response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – A Django HttpRequest object representing the user’s request.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A Django HttpResponse object containing the rendered “index.html” template.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="polls.views.polls">
 <span class="sig-prename descclassname"><span class="pre">polls.views.</span></span><span class="sig-name descname"><span class="pre">polls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polls/views.html#polls"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#polls.views.polls" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Displays a list of poll questions retrieved from the database to the user, in order of date published,
+and renders the ‘poll.html’ template</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – The HTTP request object.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The rendered HTML response containing the list of poll questions.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="polls.views.register">
 <span class="sig-prename descclassname"><span class="pre">polls.views.</span></span><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polls/views.html#register"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#polls.views.register" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>This function facilitates the registration of a new user based on a POST request; then authenticates them
+and redirects them to the home page. If the request is not successful, the user will be prompted to start again
+with a clean registration form.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – The HTTP request object.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A response containing either a registration form or a redirect to the home page.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Example<span class="colon">:</span></dt>
+<dd class="field-odd"><p>To register a new user, make a POST request to this view with the necessary form data.</p>
+</dd>
+<dt class="field-even">Note<span class="colon">:</span></dt>
+<dd class="field-even"><p>This view assumes that you have a Django <cite>UserCreationForm</cite> for user registration.
+It also assumes that you have configured URL routing with a ‘polls:home’ reverse URL.</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="polls.views.result">
 <span class="sig-prename descclassname"><span class="pre">polls.views.</span></span><span class="sig-name descname"><span class="pre">result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">question_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polls/views.html#result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#polls.views.result" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Displays the poll results of a particular question to the user.
+It takes a <cite>request</cite> object and a <cite>question_id</cite> as parameters
+and renders a template to display the results of the specified question.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>HttpRequest</em>) – The HTTP request object.</p></li>
+<li><p><strong>question_id</strong> (<em>int</em>) – The ID of the question to display results for.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A rendered HTML page displaying the poll results.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="polls.views.store">
 <span class="sig-prename descclassname"><span class="pre">polls.views.</span></span><span class="sig-name descname"><span class="pre">store</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polls/views.html#store"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#polls.views.store" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>This function displays the online store to the user. The store is not functional yet.
+It renders the online_store.html template and returns it as a response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – A Django HttpRequest object representing the user’s request.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A Django HttpResponse object containing the rendered “online_store.html” template.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="polls.views.user_login">
 <span class="sig-prename descclassname"><span class="pre">polls.views.</span></span><span class="sig-name descname"><span class="pre">user_login</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polls/views.html#user_login"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#polls.views.user_login" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Facilitates the login of an existing user, authenticates and then redirects them to the home page.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>HttpRequest</em>) – The HTTP request object.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A rendered HTML page for user login or a redirection to the home page upon successful login.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>HttpResponse</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="polls.views.vote">
 <span class="sig-prename descclassname"><span class="pre">polls.views.</span></span><span class="sig-name descname"><span class="pre">vote</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">question_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/polls/views.html#vote"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#polls.views.vote" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>This function facilitates the voting process for a given question and redirects users to the results page.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>request</strong> (<em>django.http.HttpRequest</em>) – The HTTP request object.</p></li>
+<li><p><strong>question_id</strong> (<em>int</em>) – The ID of the question to vote on.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>HttpResponseRedirect to the results page.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>django.http.HttpResponseRedirect</p>
+</dd>
+</dl>
+</dd></dl>
 
 </section>
 <section id="module-polls">
