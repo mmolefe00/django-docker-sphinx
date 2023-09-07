@@ -12,7 +12,6 @@ A dockerised django project with sphinx documentation. The site features login/s
 4. [Dockerization](#dockerization)
 5. [Documentation](#documentation)
 6. [Contributing](#contributing)
-7. [License](#license)
 
 ## Prerequisites
 
@@ -88,6 +87,7 @@ The Django app should now be running locally. You can access it at [http://local
 [Provide instructions on how to use your Django app, including any specific workflows, features, or functionalities that users should be aware of.]
 
 ## Dockerization
+
 ### Locally
 If you prefer running the app within a Docker container, follow these steps:
 
@@ -103,7 +103,26 @@ If you prefer running the app within a Docker container, follow these steps:
    docker run -p 8000:8000 aot-app
    ```
 
+
 The Django app will be accessible at [http://localhost:8000](http://localhost:8000) within the Docker container.
+
+### Docker Playground
+Once logged into docker playground, create a new instance. Then type the following:
+
+1. Pull Django:
+   ```bash
+   docker pull django
+   ```
+   
+2. Run the docker container:
+   ```bash
+   docker run -p 8000:8000 mmolefe/aot-django
+   ```
+
+Click on the underlined 8000 next to the "OPEN PORT" button to run. 
+
+NOTE: If the host is disallowed, modify the settings.py file so that ALLOWED_HOSTS = ['*'] instead of []
+
 
 ## Documentation
 
