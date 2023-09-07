@@ -4,6 +4,7 @@
 
 A dockerised django project with sphinx documentation. The site features login/sign-up, a polls app and a non-functional online store. It comes with a Dockerfile for containerization, a requirements.txt file for managing dependencies, and a docs folder for Sphinx documentation. This README file will guide you through setting up, running, and using the app.
 
+
 ## Table of Contents
 
 1. [Prerequisites](#prerequisites)
@@ -13,6 +14,7 @@ A dockerised django project with sphinx documentation. The site features login/s
 5. [Documentation](#documentation)
 6. [Contributing](#contributing)
 
+
 ## Prerequisites
 
 Before you begin, ensure you have met the following requirements:
@@ -21,6 +23,7 @@ Before you begin, ensure you have met the following requirements:
 - [Django](https://www.djangoproject.com/download/) (version 4.2.2 or higher)
 - [Docker](https://docs.docker.com/get-docker/) (for containerization)
 - [Docker Compose](https://docs.docker.com/compose/install/) (for running with Docker)
+
 
 ## Installation
 
@@ -82,6 +85,7 @@ Before you begin, ensure you have met the following requirements:
 
 The Django app should now be running locally. You can access it at [http://localhost:8000](http://localhost:8000) in your web browser.
 
+
 ## Usage
 
 ### Sign-Up/ Login
@@ -119,6 +123,7 @@ If you prefer running the app within a Docker container, follow these steps:
 
 
 The Django app will be accessible at [http://localhost:8000](http://localhost:8000) within the Docker container.
+
 
 ### Docker Playground
 Once logged into docker playground, create a new instance. Then type the following:
@@ -160,6 +165,7 @@ You can find the documentation for this Django app in the `docs` folder. To buil
    ```bash
    open _build/html/index.html
    ```
+
 
 ## Contributing
 
