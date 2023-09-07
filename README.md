@@ -34,7 +34,7 @@ Before you begin, ensure you have met the following requirements:
 2. Navigate to the project directory:
 
    ```bash
-   cd your-django-app
+   cd aot_site
    ```
 
 3. Create a virtual environment (optional but recommended):
@@ -88,19 +88,19 @@ The Django app should now be running locally. You can access it at [http://local
 [Provide instructions on how to use your Django app, including any specific workflows, features, or functionalities that users should be aware of.]
 
 ## Dockerization
-
+### Locally
 If you prefer running the app within a Docker container, follow these steps:
 
 1. Build the Docker image from the project directory:
 
    ```bash
-   docker build -t your-django-app .
+   docker build --tag aot-app:latest ./
    ```
 
 2. Run the Docker container:
 
    ```bash
-   docker run -p 8000:8000 your-django-app
+   docker run -p 8000:8000 aot-app
    ```
 
 The Django app will be accessible at [http://localhost:8000](http://localhost:8000) within the Docker container.
@@ -136,10 +136,3 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 - Create a new branch from the main branch for your changes.
 - Make your changes and commit them with clear and concise messages.
 - Create a pull request and describe your changes in detail.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-```
-
-You can copy and paste this raw Markdown into your README.md file on GitHub.
