@@ -84,7 +84,21 @@ The Django app should now be running locally. You can access it at [http://local
 
 ## Usage
 
-[Provide instructions on how to use your Django app, including any specific workflows, features, or functionalities that users should be aware of.]
+### Sign-Up/ Login
+1. New user: Click the sign up button. Once signed-up successfully, the username will be authenticated, added to the database and then the user will be rerouted to the home page.
+2. Returning User: Click the login button. Once logged in successfully, the user will be rerouted to the home page. Only login with an existing username, otherwise sign up.
+3. Admin: To access the admin site, login with the details you used to create a superuser. Then go to the [admin page.](http://localhost:8000/admin)
+
+### Admin
+You can add poll questions and their corresponding choice options. You can also add new users and delete eold ones. 
+
+### Polls
+If you click the polls button from the home page, you will be directed to a list view of all the polls. Follow the buttons to view, vote on and view the results of a specific question.
+When complete, return to the home page with the button.
+
+### Online Store
+The store is not functional but check it out to see its potential.
+
 
 ## Dockerization
 
